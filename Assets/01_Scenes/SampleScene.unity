@@ -635,74 +635,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d0c445c033221489c957a5501f56ced6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!1001 &5492632616431803050
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    serializedVersion: 3
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 3174968064314453632, guid: d78238a4cbd0c46b7b0446e3c0a9c579,
-        type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3174968064314453632, guid: d78238a4cbd0c46b7b0446e3c0a9c579,
-        type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 3174968064314453632, guid: d78238a4cbd0c46b7b0446e3c0a9c579,
-        type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3174968064314453632, guid: d78238a4cbd0c46b7b0446e3c0a9c579,
-        type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 3174968064314453632, guid: d78238a4cbd0c46b7b0446e3c0a9c579,
-        type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3174968064314453632, guid: d78238a4cbd0c46b7b0446e3c0a9c579,
-        type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3174968064314453632, guid: d78238a4cbd0c46b7b0446e3c0a9c579,
-        type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3174968064314453632, guid: d78238a4cbd0c46b7b0446e3c0a9c579,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3174968064314453632, guid: d78238a4cbd0c46b7b0446e3c0a9c579,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3174968064314453632, guid: d78238a4cbd0c46b7b0446e3c0a9c579,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6828470128468174572, guid: d78238a4cbd0c46b7b0446e3c0a9c579,
-        type: 3}
-      propertyPath: m_Name
-      value: AgentCube
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-    m_RemovedGameObjects: []
-    m_AddedGameObjects: []
-    m_AddedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: d78238a4cbd0c46b7b0446e3c0a9c579, type: 3}
+  agentPrefab: {fileID: 3114456869794564416, guid: d78238a4cbd0c46b7b0446e3c0a9c579,
+    type: 3}
+  redCount: 3
+  greenCount: 3
+  blueCount: 3
+  areaSize: 5
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
@@ -711,5 +649,4 @@ SceneRoots:
   - {fileID: 410087041}
   - {fileID: 832575519}
   - {fileID: 907712354}
-  - {fileID: 5492632616431803050}
   - {fileID: 1733402481}

@@ -1,0 +1,47 @@
+{
+    "name": "root",
+    "metadata": {
+        "timer_format_version": "0.1.0",
+        "start_time_seconds": "1740408360",
+        "python_version": "3.9.21 (main, Dec 11 2024, 10:21:40) \n[Clang 14.0.6 ]",
+        "command_line_arguments": "/Users/boracles/anaconda3/envs/ml-env/bin/mlagents-learn ./Assets/ML-Agents/Config/color_grouping_config.yaml --run-id=ColorRun1 --env=.",
+        "mlagents_version": "0.30.0",
+        "mlagents_envs_version": "0.30.0",
+        "communication_protocol_version": "1.5.0",
+        "pytorch_version": "2.5.1",
+        "numpy_version": "1.21.2",
+        "end_time_seconds": "1740408362"
+    },
+    "total": 1.4544415000000002,
+    "count": 1,
+    "self": 0.0031858330000003043,
+    "children": {
+        "run_training.setup": {
+            "total": 0.47754325,
+            "count": 1,
+            "self": 0.47754325
+        },
+        "TrainerController.start_learning": {
+            "total": 0.973712417,
+            "count": 1,
+            "self": 0.0002935830000001527,
+            "children": {
+                "TrainerController._reset_env": {
+                    "total": 0.973413292,
+                    "count": 1,
+                    "self": 0.973413292
+                },
+                "trainer_threads": {
+                    "total": 5.00000000069889e-07,
+                    "count": 1,
+                    "self": 5.00000000069889e-07
+                },
+                "TrainerController._save_models": {
+                    "total": 5.041999999733093e-06,
+                    "count": 1,
+                    "self": 5.041999999733093e-06
+                }
+            }
+        }
+    }
+}
