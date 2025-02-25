@@ -7,7 +7,7 @@ public class ColorGroupingEnv : MonoBehaviour
     public int redCount = 3;
     public int greenCount = 3;
     public int blueCount = 3;
-    public float areaSize = 5.0f;
+    public float areaSize = 20.0f;
 
     private List<ColorGroupingAgent> agents = new List<ColorGroupingAgent>();
 

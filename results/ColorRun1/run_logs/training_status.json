@@ -1,7 +1,38 @@
 {
+    "ColorGroupingBehavior": {
+        "checkpoints": [
+            {
+                "steps": 499970,
+                "file_path": "results/ColorRun1/ColorGroupingBehavior/ColorGroupingBehavior-499970.onnx",
+                "reward": -0.5514999991282821,
+                "creation_time": 1740458537.6533701,
+                "auxillary_file_paths": [
+                    "results/ColorRun1/ColorGroupingBehavior/ColorGroupingBehavior-499970.pt"
+                ]
+            },
+            {
+                "steps": 500034,
+                "file_path": "results/ColorRun1/ColorGroupingBehavior/ColorGroupingBehavior-500034.onnx",
+                "reward": -0.5514999991282821,
+                "creation_time": 1740458537.692182,
+                "auxillary_file_paths": [
+                    "results/ColorRun1/ColorGroupingBehavior/ColorGroupingBehavior-500034.pt"
+                ]
+            }
+        ],
+        "final_checkpoint": {
+            "steps": 500034,
+            "file_path": "results/ColorRun1/ColorGroupingBehavior.onnx",
+            "reward": -0.5514999991282821,
+            "creation_time": 1740458537.692182,
+            "auxillary_file_paths": [
+                "results/ColorRun1/ColorGroupingBehavior/ColorGroupingBehavior-500034.pt"
+            ]
+        }
+    },
     "metadata": {
         "stats_format_version": "0.3.0",
         "mlagents_version": "0.30.0",
-        "torch_version": "2.5.1"
+        "torch_version": "1.11.0"
     }
 }
