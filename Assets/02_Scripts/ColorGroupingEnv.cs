@@ -13,12 +13,12 @@ public class ColorGroupingEnv : MonoBehaviour
 
     private void Start()
     {
-        // 각각 N개씩 스폰
+        // 1. 빨강/초록/파랑 에이전트 스폰
         SpawnAgents(redCount, ColorType.Red);
         SpawnAgents(greenCount, ColorType.Green);
         SpawnAgents(blueCount, ColorType.Blue);
         
-        // 각 에이전트에 "allAgents" 리스트를 할당
+        // 2. 생성된 에이전트 목록(agents)을 모두 순회하여 allAgents 할당
         foreach (var ag in agents)
         {
             ag.allAgents = agents;

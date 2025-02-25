@@ -8,9 +8,11 @@ behaviors:
       beta: 5.0e-4
       epsilon: 0.2
       lambd: 0.99
+      
     network_settings:
       num_layers: 2
       hidden_units: 128
+    
     max_steps: 500000
     time_horizon: 64
     summary_freq: 10000
