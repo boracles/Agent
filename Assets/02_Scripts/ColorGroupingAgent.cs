@@ -103,15 +103,17 @@ public class ColorGroupingAgent : Agent
         // 연속형 2개(moveX, moveZ)
         float moveX = actions.ContinuousActions[0];
         float moveZ = actions.ContinuousActions[1];
+        Debug.Log($"OnActionReceived: {moveX}, {moveZ}");
         
         // 이동
         Vector3 force = new Vector3(moveX, 0, moveZ) * moveSpeed;
         rb.AddForce(force, ForceMode.VelocityChange);
         
-        // 맵 밖으로 벗어나면 패널티
+        // 맵 밖으로 벗어나면 패널티 + 에피소드 종료
         if(Mathf.Abs(transform.localPosition.x)>areaSize || Mathf.Abs(transform.localPosition.z)>areaSize)
         {
-            AddReward(-0.01f);
+            AddReward(-1.0f);
+            EndEpisode();
         }
         
         // 보상 설계 : 같은 색상 가까이, 다른 색상은 멀리

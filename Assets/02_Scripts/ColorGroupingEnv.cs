@@ -33,6 +33,26 @@ public class ColorGroupingEnv : MonoBehaviour
             var newAgent = Instantiate(agentPrefab, pos, Quaternion.identity, transform);
             newAgent.colorType = ctype;
             newAgent.areaSize = areaSize;
+            
+            // **색상 지정**: MeshRenderer 또는 Renderer 컴포넌트를 찾아서 색상 변경
+            // (1) 직접 Color 값을 할당
+            var rend = newAgent.GetComponent<MeshRenderer>();
+            if (rend != null)
+            {
+                switch (ctype)
+                {
+                    case ColorType.Red:
+                        rend.material.color = Color.red;
+                        break;
+                    case ColorType.Green:
+                        rend.material.color = Color.green;
+                        break;
+                    case ColorType.Blue:
+                        rend.material.color = Color.blue;
+                        break;
+                }
+            }
+            
             agents.Add(newAgent);
         }
     }
