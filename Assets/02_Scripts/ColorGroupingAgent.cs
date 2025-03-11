@@ -103,8 +103,7 @@ public class ColorGroupingAgent : Agent
         // 연속형 2개(moveX, moveZ)
         float moveX = actions.ContinuousActions[0];
         float moveZ = actions.ContinuousActions[1];
-        Debug.Log($"OnActionReceived: {moveX}, {moveZ}");
-        
+
         // 이동
         Vector3 force = new Vector3(moveX, 0, moveZ) * moveSpeed;
         rb.AddForce(force, ForceMode.VelocityChange);
@@ -121,17 +120,81 @@ public class ColorGroupingAgent : Agent
         {
             if (other == this) continue;
             float dist = Vector3.Distance(transform.localPosition, other.transform.localPosition);
-            if (dist < 1.5f)
+            if (dist < 1.0f)
             {
-                if (other.colorType == this.colorType)
-                    AddReward(0.01f); // 같은 색이면 +
-                else
-                    AddReward(-0.01f); // 다른 색이면 -
+                if (other.colorType == this.colorType) AddReward(+0.05f); // 같은 색이면 +
+                else AddReward(-0.05f); // 다른 색이면 -
+            }
+            else if (dist < 2.0f)
+            {
+                if(other.colorType == this.colorType) AddReward(+0.02f);
+                else AddReward(-0.02f);
             }
         }
 
         // 스텝당 약간의 시간 페널티(지연 방지)
         AddReward(-0.0005f);
+        
+        // 지역 임계 대중 체크 로직
+        float checkRange = 3.0f;    // 주변 에이전트를 확인할 거리
+        float threshold = 0.6f;     // 임계값 60%
+        Dictionary<ColorType, int> colorCount = new Dictionary<ColorType, int>();
+        colorCount[ColorType.Red] = 0;
+        colorCount[ColorType.Green] = 0;
+        colorCount[ColorType.Blue] = 0;
+
+        int neighborCount = 0;
+        foreach (var other in allAgents)
+        {
+            if(other == this) continue;
+            float dist = Vector3.Distance(transform.localPosition, other.transform.localPosition);
+            if (dist <= checkRange)
+            {
+                colorCount[other.colorType]++;
+                neighborCount++;
+            }
+        }
+
+        if (neighborCount > 0)
+        {
+            // 각 색깔 비율 계산
+            float redRatio = (float) colorCount[ColorType.Red] / neighborCount;
+            float greenRatio = (float) colorCount[ColorType.Green] / neighborCount;
+            float blueRatio = (float) colorCount[ColorType.Blue] / neighborCount;
+            
+            // 가장 높은 비율의 색 찾기
+            float maxRatio = Mathf.Max(redRatio, Mathf.Max(greenRatio, blueRatio));
+            
+            // 임계치 넘는치 체크
+            if (maxRatio >= threshold)
+            {
+                // "가장 높은 비율의 색"으로 강제 변경
+                if (maxRatio == redRatio) ChangeColor(ColorType.Red);
+                else if (maxRatio == greenRatio) ChangeColor(ColorType.Green);
+                else if (maxRatio == blueRatio) ChangeColor(ColorType.Blue);
+            }
+        }
+    }
+
+    public void ChangeColor(ColorType newColor)
+    {
+        // 이미 해당 색이면 패스
+        if (colorType == newColor) return;
+
+        // 내부 colorType 변경
+        colorType = newColor;
+        
+        // 실제 시각적 색사아 변경
+        MeshRenderer rend = GetComponent<MeshRenderer>();
+        if (rend != null)
+        {
+            switch (newColor)
+            {
+                case ColorType.Red:   rend.material.color = Color.red;   break;
+                case ColorType.Green: rend.material.color = Color.green; break;
+                case ColorType.Blue:  rend.material.color = Color.blue;  break;
+            }
+        }
     }
 
     // 사람 테스트용 (Heuristic)
